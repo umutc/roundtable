@@ -1,0 +1,10 @@
+{
+  "name": "roundtable",
+  "description": "Spawn a multi-agent Claude Code debate from inside your session. Requires npm + npx.",
+  "version": "0.1.0",
+  "author": { "name": "Umut Celik" },
+  "homepage": "https://github.com/umutc/roundtable",
+  "repository": "https://github.com/umutc/roundtable",
+  "license": "MIT",
+  "keywords": ["multi-agent", "debate", "orchestration"]
+}

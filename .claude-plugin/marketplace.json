@@ -1,0 +1,25 @@
+{
+  "name": "roundtable-marketplace",
+  "owner": {
+    "name": "Umut Celik",
+    "email": "05umutcelik@gmail.com"
+  },
+  "metadata": {
+    "description": "Multi-agent Claude Code debate orchestrator",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "roundtable",
+      "source": "./plugins/roundtable",
+      "description": "Run multi-agent Claude Code debates from inside your session",
+      "version": "0.1.0",
+      "author": { "name": "Umut Celik" },
+      "homepage": "https://github.com/umutc/roundtable",
+      "repository": "https://github.com/umutc/roundtable",
+      "license": "MIT",
+      "keywords": ["claude", "multi-agent", "debate", "orchestration"],
+      "category": "productivity"
+    }
+  ]
+}
