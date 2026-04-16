@@ -22,7 +22,7 @@ npm install -g roundtable
 
 **From source:**
 ```bash
-git clone https://github.com/umutcelik/roundtable.git
+git clone https://github.com/umutc/roundtable.git
 cd roundtable
 make install   # builds + copies to ~/.local/bin/
 ```

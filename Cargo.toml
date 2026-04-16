@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2021"
 description = "Multiple Claude Code agents debate. One moderator synthesizes."
 license = "MIT"
-repository = "https://github.com/umutcelik/roundtable"
+repository = "https://github.com/umutc/roundtable"
 keywords = ["claude", "ai", "multi-agent", "debate", "orchestration"]
 categories = ["command-line-utilities"]
 
