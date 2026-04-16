@@ -1,0 +1,23 @@
+{
+  "name": "roundtable",
+  "version": "0.1.0",
+  "description": "Multiple Claude Code agents debate. One moderator synthesizes.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/umutcelik/roundtable"
+  },
+  "keywords": ["claude", "claude-code", "ai", "multi-agent", "debate"],
+  "bin": {
+    "roundtable": "bin/roundtable",
+    "roundtable-chat": "bin/roundtable-chat"
+  },
+  "files": ["bin", "examples"],
+  "optionalDependencies": {
+    "@roundtable/darwin-arm64": "0.1.0",
+    "@roundtable/darwin-x64": "0.1.0",
+    "@roundtable/linux-x64": "0.1.0",
+    "@roundtable/linux-arm64": "0.1.0"
+  },
+  "engines": { "node": ">=16" }
+}

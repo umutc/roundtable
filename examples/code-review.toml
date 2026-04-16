@@ -1,0 +1,51 @@
+# Project-based review — works on real code
+# Usage: roundtable code-review --cwd /path/to/project --context-file CLAUDE.md
+
+[session]
+topic = "Review the project architecture and suggest improvements"
+max_rounds = 5
+model = "sonnet"
+moderator_model = "sonnet"
+max_turns = 3  # agents need turns to read files
+
+[project]
+# description = "Next.js e-commerce app with Supabase backend"
+# context_files = ["CLAUDE.md", "package.json"]
+# add_dirs = ["../shared-lib"]
+# mcp_config = ".claude/mcp.json"
+
+[moderator]
+role = """
+You are a tech lead. Your job:
+1. Analyze agents' findings on the CODE
+2. Direct agents to unexplored areas
+3. Produce an actionable plan
+
+Agents can read project files. Tell them which specific files to examine.
+
+End with JSON:
+{"action": "continue", "guidance": "Security: examine src/auth/*.ts"}
+or
+{"action": "synthesize"}
+"""
+
+[[agents]]
+name = "Security Reviewer"
+role = "You are an AppSec expert. Review auth flows, token management, injection risks, OWASP top 10. Read project files and report concrete issues."
+color = "red"
+allowed_tools = ["Read", "Grep", "Glob"]
+disallowed_tools = ["Edit", "Write"]
+
+[[agents]]
+name = "Performance Reviewer"
+role = "You are a performance expert. Review N+1 queries, unnecessary re-renders, bundle size, cache strategy. Read project files."
+color = "blue"
+allowed_tools = ["Read", "Grep", "Glob"]
+disallowed_tools = ["Edit", "Write"]
+
+[[agents]]
+name = "Architecture Reviewer"
+role = "You are an architecture expert. Review separation of concerns, dependency direction, modularity, testability. Read project files."
+color = "cyan"
+allowed_tools = ["Read", "Grep", "Glob"]
+disallowed_tools = ["Edit", "Write"]

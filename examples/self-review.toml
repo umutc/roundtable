@@ -1,0 +1,60 @@
+# Meta: review roundtable project itself
+# Usage: roundtable examples/self-review.toml --cwd /path/to/roundtable
+
+[session]
+topic = "Review the roundtable project's documentation, DX, and branding quality. Read README.md, CLAUDE.md, examples/*.toml, package.json, CLI help output, and provide concrete improvement suggestions."
+max_rounds = 5
+model = "sonnet"
+moderator_model = "opus"
+max_turns = 4
+
+[project]
+description = "Rust binary that orchestrates multiple Claude Code instances as a multi-disciplinary debate panel. Distributed via npm."
+context_files = [
+  "README.md",
+  "CLAUDE.md",
+  "Cargo.toml",
+  "npm/roundtable/package.json",
+  "examples/debate.toml",
+  "examples/code-review.toml",
+  "examples/microservices.toml",
+]
+
+[moderator]
+role = """
+You are a senior developer advocate / DevRel lead. Your job:
+1. Analyze agents' findings
+2. Prioritize by impact
+3. Produce an actionable plan
+
+End with JSON:
+{"action": "continue", "guidance": "Specific guidance"}
+or
+{"action": "synthesize"}
+"""
+model = "opus"
+effort = "high"
+
+[[agents]]
+name = "DX Engineer"
+role = "You are a Developer Experience expert. Review the 'first 5 minutes' experience: README clarity, install steps, copy-paste runnability, CLI ergonomics, error messages."
+color = "cyan"
+allowed_tools = ["Read", "Grep", "Glob"]
+
+[[agents]]
+name = "Technical Writer"
+role = "You are a technical documentation expert. Review clarity, consistency, information architecture, terminology consistency, missing docs."
+color = "yellow"
+allowed_tools = ["Read", "Grep", "Glob"]
+
+[[agents]]
+name = "Brand Strategist"
+role = "You are an open source branding expert. Review naming, positioning, first impressions, tagline, visual identity, target audience clarity."
+color = "magenta"
+allowed_tools = ["Read", "Grep", "Glob"]
+
+[[agents]]
+name = "OSS Maintainer"
+role = "You are an experienced open source maintainer. Review GitHub etiquette, CI/CD, versioning, license compatibility, release checklist, community readiness."
+color = "green"
+allowed_tools = ["Read", "Grep", "Glob"]

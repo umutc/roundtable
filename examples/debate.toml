@@ -1,0 +1,32 @@
+# Simple debate — two perspectives on any topic
+# Usage: roundtable debate --topic "Your question here" -m haiku
+
+[session]
+topic = "Is TDD really necessary in software projects?"
+max_rounds = 5
+model = "sonnet"
+moderator_model = "sonnet"
+max_turns = 2
+
+[moderator]
+role = """
+You are an experienced moderator. Your job:
+1. Analyze both sides' arguments
+2. Identify missing points
+3. When convergence is reached, synthesize
+
+End with JSON on the last line:
+{"action": "continue", "guidance": "Specific guidance"}
+or
+{"action": "synthesize"}
+"""
+
+[[agents]]
+name = "Advocate"
+role = "You argue in favor of the topic. Provide concrete examples and data. Acknowledge strong counterpoints but defend your position."
+color = "green"
+
+[[agents]]
+name = "Critic"
+role = "You take a skeptical position. Highlight practical issues, trade-offs, and hidden costs. Acknowledge strong points but stay critical."
+color = "red"

@@ -1,0 +1,25 @@
+#!/usr/bin/env node
+
+const { execFileSync } = require("child_process");
+const os = require("os");
+
+const PLATFORM_MAP = {
+  "darwin-arm64": "@roundtable/darwin-arm64",
+  "darwin-x64": "@roundtable/darwin-x64",
+  "linux-x64": "@roundtable/linux-x64",
+  "linux-arm64": "@roundtable/linux-arm64",
+};
+
+function getBinaryPath() {
+  const key = `${os.platform()}-${os.arch()}`;
+  const pkg = PLATFORM_MAP[key];
+  if (!pkg) {
+    console.error(`Unsupported platform: ${key}\nSupported: ${Object.keys(PLATFORM_MAP).join(", ")}`);
+    process.exit(1);
+  }
+  try { return require.resolve(`${pkg}/bin/roundtable`); }
+  catch { console.error(`Platform package ${pkg} not installed.\nTry: npm install ${pkg}`); process.exit(1); }
+}
+
+try { execFileSync(getBinaryPath(), process.argv.slice(2), { stdio: "inherit" }); }
+catch (e) { if (e.status !== undefined) process.exit(e.status); throw e; }

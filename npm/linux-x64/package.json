@@ -1,0 +1,13 @@
+{
+  "name": "@roundtable/linux-x64",
+  "version": "0.1.0",
+  "description": "roundtable linux-x64 binary",
+  "license": "MIT",
+  "os": ["linux"],
+  "cpu": ["x64"],
+  "bin": {
+    "roundtable": "bin/roundtable",
+    "roundtable-chat": "bin/roundtable-chat"
+  },
+  "files": ["bin"]
+}

@@ -1,0 +1,29 @@
+[package]
+name = "roundtable"
+version = "0.1.0"
+edition = "2021"
+description = "Multiple Claude Code agents debate. One moderator synthesizes."
+license = "MIT"
+repository = "https://github.com/umutcelik/roundtable"
+keywords = ["claude", "ai", "multi-agent", "debate", "orchestration"]
+categories = ["command-line-utilities"]
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+clap = { version = "4", features = ["derive"] }
+colored = "3"
+chrono = "0.4"
+toml = "0.8"
+
+[[bin]]
+name = "roundtable"
+path = "src/main.rs"
+
+[[bin]]
+name = "roundtable-chat"
+path = "src/duo.rs"
+
+[profile.release]
+lto = true
+strip = true

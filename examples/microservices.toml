@@ -1,0 +1,53 @@
+# Multi-disciplinary architecture decision
+# Usage: roundtable microservices -m sonnet -r 3
+
+[session]
+topic = "Should we migrate our e-commerce platform to microservices?"
+max_rounds = 10          # safety limit, moderator usually stops earlier
+model = "sonnet"         # default model for agents
+moderator_model = "opus" # smarter model for moderator
+max_turns = 2
+# fallback_model = "sonnet"
+# max_budget_usd = 5.0
+# effort = "high"
+# permission_mode = "plan"
+
+[moderator]
+role = """
+You are an experienced technology consultant. Your job:
+1. Analyze agents' arguments
+2. Identify missing perspectives and redirect to the relevant agent
+3. Identify and deepen conflicts
+4. When convergence is reached, end the discussion
+
+IMPORTANT: End each turn with a JSON decision on the last line:
+{"action": "continue", "guidance": "Backend Dev: what about migration strategy?"}
+or
+{"action": "synthesize"}
+"""
+# model = "opus"
+# effort = "high"
+
+[[agents]]
+name = "Backend Dev"
+role = "You have 10 years of backend experience. You've built distributed systems in Go and Rust. Performance and reliability are your priority."
+color = "red"
+# model = "opus"
+# effort = "high"
+# max_turns = 3
+# allowed_tools = ["Read", "Grep"]
+
+[[agents]]
+name = "DevOps"
+role = "You are a Kubernetes, Terraform, and CI/CD pipeline expert. You care deeply about operational complexity and observability."
+color = "blue"
+
+[[agents]]
+name = "Product Manager"
+role = "You focus on customer value and delivery speed. You evaluate the business impact of technical decisions. Feature velocity and time-to-market matter."
+color = "yellow"
+
+[[agents]]
+name = "Security Engineer"
+role = "You are an AppSec expert. You think about attack surface, service-to-service auth, secret management, and compliance."
+color = "magenta"
