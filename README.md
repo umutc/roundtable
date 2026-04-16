@@ -27,6 +27,19 @@ cd roundtable
 make install   # builds + copies to ~/.local/bin/
 ```
 
+**Claude Code plugin (run debates from inside a Claude Code session):**
+```
+/plugin marketplace add umutc/roundtable
+/plugin install roundtable@roundtable-marketplace
+```
+
+Then invoke from any Claude Code session:
+- `/roundtable:debate <topic>` — generic N-agent debate
+- `/roundtable:code-review [scope]` — multi-disciplinary code review panel on current `cwd`
+- `/roundtable:microservices <topic>` — architecture debate panel
+
+The plugin wraps `npx roundtable` under the hood — still needs Node 16+ and an authenticated `claude` CLI. Plugin manifest lives at [`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json); skills at [`plugins/roundtable/skills/`](plugins/roundtable/skills/).
+
 **Requires:** [Claude Code CLI](https://docs.anthropic.com/en/docs/claude-code) installed and authenticated (`claude` in PATH).
 
 ## Quick Start

@@ -81,4 +81,30 @@ examples/*.toml      — config templates (embedded in binary via include_str!)
 npm/roundtable/      — npm main package (JS shims)
 npm/{platform}/      — platform-specific binary packages
 .github/workflows/   — CI: build 4 platforms + publish npm + GitHub release
+.claude-plugin/      — Claude Code plugin marketplace manifest
+plugins/roundtable/  — plugin body (skills/debate, code-review, microservices)
 ```
+
+## Claude Code Plugin
+
+Marketplace at `.claude-plugin/marketplace.json`, plugin at `plugins/roundtable/`.
+Skills wrap `npx -y roundtable@latest <cmd>` via Bash and parse the final JSON line's `synthesis` field.
+
+Validate:
+```bash
+claude plugin validate .
+```
+
+Local test:
+```bash
+claude --plugin-dir ./plugins/roundtable
+# then: /roundtable:debate <topic>
+```
+
+Install flow for end-users:
+```
+/plugin marketplace add umutc/roundtable
+/plugin install roundtable@roundtable-marketplace
+```
+
+Bump `version` in both `marketplace.json` and `plugins/roundtable/.claude-plugin/plugin.json` on release.
