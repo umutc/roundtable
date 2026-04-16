@@ -2,6 +2,8 @@
 
 Multiple Claude Code agents debate. One moderator synthesizes.
 
+![demo](assets/demo.gif)
+
 ## Why
 
 Claude Code's sub-agents can't talk to each other — they only report back to the parent. Roundtable solves this by orchestrating N independent Claude Code processes through a shared transcript, enabling real multi-perspective debate on any topic.
