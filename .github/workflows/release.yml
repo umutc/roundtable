@@ -101,7 +101,7 @@ jobs:
         run: |
           for pkg in darwin-arm64 darwin-x64 linux-x64 linux-arm64; do
             if [ -d "artifacts/$pkg/npm/$pkg" ]; then
-              echo "Publishing @roundtable/$pkg"
+              echo "Publishing @umutcelik/roundtable-$pkg"
               cd "artifacts/$pkg/npm/$pkg"
               npm publish --access public || true
               cd -

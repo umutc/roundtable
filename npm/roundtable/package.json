@@ -14,10 +14,10 @@
   },
   "files": ["bin", "examples"],
   "optionalDependencies": {
-    "@roundtable/darwin-arm64": "0.1.0",
-    "@roundtable/darwin-x64": "0.1.0",
-    "@roundtable/linux-x64": "0.1.0",
-    "@roundtable/linux-arm64": "0.1.0"
+    "@umutcelik/roundtable-darwin-arm64": "0.1.0",
+    "@umutcelik/roundtable-darwin-x64": "0.1.0",
+    "@umutcelik/roundtable-linux-x64": "0.1.0",
+    "@umutcelik/roundtable-linux-arm64": "0.1.0"
   },
   "engines": { "node": ">=16" }
 }

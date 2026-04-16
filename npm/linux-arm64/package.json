@@ -1,5 +1,5 @@
 {
-  "name": "@roundtable/linux-arm64",
+  "name": "@umutcelik/roundtable-linux-arm64",
   "version": "0.1.0",
   "description": "roundtable linux-arm64 binary",
   "license": "MIT",
