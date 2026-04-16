@@ -113,5 +113,6 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           cp -r examples npm/roundtable/
+          cp README.md LICENSE npm/roundtable/
           cd npm/roundtable
           npm publish --access public || true
