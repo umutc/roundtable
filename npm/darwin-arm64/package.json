@@ -1,13 +1,9 @@
 {
   "name": "@umutcelik/roundtable-darwin-arm64",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "roundtable darwin-arm64 binary",
   "license": "MIT",
   "os": ["darwin"],
   "cpu": ["arm64"],
-  "bin": {
-    "roundtable": "bin/roundtable",
-    "roundtable-chat": "bin/roundtable-chat"
-  },
   "files": ["bin"]
 }

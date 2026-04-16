@@ -1,6 +1,6 @@
 {
   "name": "roundtable",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Multiple Claude Code agents debate. One moderator synthesizes.",
   "license": "MIT",
   "repository": {
@@ -14,10 +14,10 @@
   },
   "files": ["bin", "examples", "README.md", "LICENSE"],
   "optionalDependencies": {
-    "@umutcelik/roundtable-darwin-arm64": "0.1.0",
-    "@umutcelik/roundtable-darwin-x64": "0.1.0",
-    "@umutcelik/roundtable-linux-x64": "0.1.0",
-    "@umutcelik/roundtable-linux-arm64": "0.1.0"
+    "@umutcelik/roundtable-darwin-arm64": "0.1.2",
+    "@umutcelik/roundtable-darwin-x64": "0.1.2",
+    "@umutcelik/roundtable-linux-x64": "0.1.2",
+    "@umutcelik/roundtable-linux-arm64": "0.1.2"
   },
   "engines": { "node": ">=16" }
 }
